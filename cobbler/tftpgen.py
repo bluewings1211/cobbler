@@ -895,7 +895,7 @@ class TFTPGen:
                         )
                 ipxe = blended["enable_ipxe"]
                 if ipxe:
-                    append_line += ' ifname=eth0:${net0/mac} ip=eth0:dhcp'
+                    append_line += ' ifname=smcnic0:${net0/mac} ip=smcnic0:dhcp'
             elif distro.breed == "suse":
                 append_line = "%s autoyast=%s" % (append_line, autoinstall_path)
                 if management_mac and distro.arch not in (enums.Archs.S390, enums.Archs.S390X):
