@@ -1575,7 +1575,137 @@
         "template_files": "",
         "boot_files": [],
         "boot_loaders": {}
-      }
+      },
+    "jammy": {
+        "signatures": [
+          "dists",
+          ".disk"
+        ],
+        "version_file": "Release|info",
+        "version_file_regex": "Suite: jammy|Ubuntu 22.04",
+        "kernel_arch": "linux-headers-(.*)\\.deb",
+        "kernel_arch_regex": null,
+        "supported_arches": [
+          "i386",
+          "amd64"
+        ],
+        "supported_repo_breeds": [
+          "apt"
+        ],
+        "kernel_file": "(linux|vmlinuz(.*))",
+        "initrd_file": "initrd($|.gz$|.lz$)",
+        "isolinux_ok": false,
+        "default_autoinstall": "",
+        "kernel_options": "",
+        "kernel_options_post": "",
+        "template_files": "",
+        "boot_files": [],
+        "boot_loaders": {}
+      },
+      "kinetic": {
+        "signatures": [
+          "dists",
+          ".disk"
+        ],
+        "version_file": "Release|info",
+        "version_file_regex": "Suite: kinetic|Ubuntu 22.10",
+        "kernel_arch": "linux-headers-(.*)\\.deb",
+        "kernel_arch_regex": null,
+        "supported_arches": [
+          "i386",
+          "amd64"
+        ],
+        "supported_repo_breeds": [
+          "apt"
+        ],
+        "kernel_file": "(linux|vmlinuz(.*))",
+        "initrd_file": "initrd($|.gz$|.lz$)",
+        "isolinux_ok": false,
+        "default_autoinstall": "",
+        "kernel_options": "",
+        "kernel_options_post": "",
+        "template_files": "",
+        "boot_files": [],
+        "boot_loaders": {}
+      },
+      "lunar": {
+        "signatures": [
+          "dists",
+          ".disk"
+        ],
+        "version_file": "Release|info",
+        "version_file_regex": "Suite: lunar|Ubuntu 23.04",
+        "kernel_arch": "linux-headers-(.*)\\.deb",
+        "kernel_arch_regex": null,
+        "supported_arches": [
+          "i386",
+          "amd64"
+        ],
+        "supported_repo_breeds": [
+          "apt"
+        ],
+        "kernel_file": "(linux|vmlinuz(.*))",
+        "initrd_file": "initrd($|.gz$|.lz$)",
+        "isolinux_ok": false,
+        "default_autoinstall": "",
+        "kernel_options": "",
+        "kernel_options_post": "",
+        "template_files": "",
+        "boot_files": [],
+        "boot_loaders": {}
+      },
+      "mantic": {
+        "signatures": [
+          "dists",
+          ".disk"
+        ],
+        "version_file": "Release|info",
+        "version_file_regex": "Suite: mantic|Ubuntu 23.10",
+        "kernel_arch": "linux_headers-(.*)\\.deb",
+        "kernel_arch_regex": null,
+        "supported_arches": [
+          "i386",
+          "amd64"
+        ],
+        "supported_repo_breeds": [
+          "apt"
+        ],
+        "kernel_file": "(linux|vmlinuz(.*))",
+        "initrd_file": "initrd($|.gz$|.lz$)",
+        "isolinux_ok": false,
+        "default_autoinstall": "",
+        "kernel_options": "",
+        "kernel_options_post": "",
+        "template_files": "",
+        "boot_files": [],
+        "boot_loaders": {}
+      },
+      "noble": {
+        "signatures": [
+          "dists",
+          ".disk"
+        ],
+        "version_file": "Release|info",
+        "version_file_regex": "Suite: noble|Ubuntu 24.04",
+        "kernel_arch": "linux_headers-(.*)\\.deb",
+        "kernel_arch_regex": null,
+        "supported_arches": [
+          "i386",
+          "amd64"
+        ],
+        "supported_repo_breeds": [
+          "apt"
+        ],
+        "kernel_file": "(linux|vmlinuz(.*))",
+        "initrd_file": "initrd($|.gz$|.lz$)",
+        "isolinux_ok": false,
+        "default_autoinstall": "",
+        "kernel_options": "",
+        "kernel_options_post": "",
+        "template_files": "",
+        "boot_files": [],
+        "boot_loaders": {}
+      },
     },
     "suse": {
       "suse": {
@@ -2531,6 +2661,35 @@
         "boot_files": [
           "*.*"
         ]
+      },
+      "esxi80": {
+        "signatures": [
+          "b.b00"
+        ],
+        "version_file": "vmware-esx-base-osl\\.txt",
+        "version_file_regex": "^(VMware )?ESXi( )?(v)?8(\\.)?0(\\.)?.*$",
+        "kernel_arch": "tools\\.t00",
+        "kernel_arch_regex": "^.*(x86_64).*$",
+        "supported_arches": [
+          "x86_64"
+        ],
+        "supported_repo_breeds": [],
+        "kernel_file": "mboot\\.c32",
+        "initrd_file": "imgpayld\\.tgz",
+        "isolinux_ok": false,
+        "default_autoinstall": "sample_esxi7.ks",
+        "kernel_options": "",
+        "kernel_options_post": "",
+        "template_files": "/etc/cobbler/boot_loader_conf/bootcfg_esxi70.template=$local_img_path/cobbler-boot.cfg",
+        "boot_files": [
+          "*.*"
+        ],
+        "boot_loaders": {
+          "x86_64": [
+            "pxe",
+            "ipxe"
+          ]
+        }
       }
     },
     "freebsd": {
