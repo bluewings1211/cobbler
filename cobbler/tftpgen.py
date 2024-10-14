@@ -901,10 +901,17 @@ class TFTPGen:
                 if management_mac and distro.arch not in (enums.Archs.S390, enums.Archs.S390X):
                     append_line += " netdevice=%s" % management_mac
             elif distro.breed == "debian" or distro.breed == "ubuntu":
+                version = int(distro.name.split('-')[1].split('.')[0])
                 append_line = "%s auto-install/enable=true priority=critical url=%s" \
                               % (append_line, autoinstall_path)
                 if mac:
-                    append_line += " interface=%s  netcfg/choose_interface=%s" % (mac, mac)
+                    if version >= 22:
+                        for intf in list(system.interfaces.keys()):
+                            if system.interfaces[intf].mac_address == mac:
+                                break
+                        append_line += f" net.ifnames=0 ip={intf}"
+                    else:
+                        append_line += " interface=%s  netcfg/choose_interface=%s" % (mac, mac)
                 if management_interface:
                     append_line += " netcfg/choose_interface=%s" % management_interface
             elif distro.breed == "freebsd":
