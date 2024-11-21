@@ -912,6 +912,11 @@ class TFTPGen:
                         append_line += f" net.ifnames=0 ip={intf}"
                     else:
                         append_line += " interface=%s  netcfg/choose_interface=%s" % (mac, mac)
+                else:
+                    if version >= 22:
+                        append_line += f" ip=dhcp"
+                    else:
+                        append_line += f" interface=auto"
                 if management_interface:
                     append_line += " netcfg/choose_interface=%s" % management_interface
             elif distro.breed == "freebsd":
