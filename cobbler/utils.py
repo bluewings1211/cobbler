@@ -1725,6 +1725,20 @@ def get_valid_os_versions_for_breed(breed) -> list:
     return os_versions
 
 
+def get_ubuntu_version_from_breed(version):
+    """
+    Return a transform ubuntu version for the given os_version
+
+    :param version: The ubuntu official version name.
+    :return: A ubuntu version code trans from official ubuntu version name.
+    """
+    if version in get_valid_os_versions_for_breed("ubuntu"):
+        ubuntu_version = SIGNATURE_CACHE["breeds"]["ubuntu"][version]['version_file_regex']
+        u_version = float(ubuntu_version.split('|')[1].split(' ')[1])
+        print(f'debug ubuntu version: {version}/{u_version}')
+    return u_version
+
+
 def get_valid_os_versions() -> list:
     """
     Return a list of valid os-versions found in the import signatures
