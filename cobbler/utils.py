@@ -1725,18 +1725,19 @@ def get_valid_os_versions_for_breed(breed) -> list:
     return os_versions
 
 
-def get_ubuntu_version_from_breed(version):
+def get_ubuntu_version_number_from_code_name(version):
     """
-    Return a transform ubuntu version for the given os_version
+    Return a transform ubuntu version for the given os_version (Code name)
 
-    :param version: The ubuntu official version name.
-    :return: A ubuntu version code trans from official ubuntu version name.
+    :param version: The ubuntu official code name.
+    :return: A ubuntu version trans from official ubuntu code name.
     """
     if version in get_valid_os_versions_for_breed("ubuntu"):
-        ubuntu_version = SIGNATURE_CACHE["breeds"]["ubuntu"][version]['version_file_regex']
-        u_version = float(ubuntu_version.split('|')[1].split(' ')[1])
-        print(f'debug ubuntu version: {version}/{u_version}')
-    return u_version
+        code_name = SIGNATURE_CACHE["breeds"]["ubuntu"][version]['version_file_regex']
+        u_version = float(code_name.split('|')[1].split(' ')[1])
+        return u_version
+    else:
+        logger.warning('Could not retrive version from code name %s', version)
 
 
 def get_valid_os_versions() -> list:

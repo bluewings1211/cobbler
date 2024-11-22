@@ -2529,6 +2529,19 @@ class CobblerXMLRPCInterface:
         results.sort()
         return self.xmlrpc_hacks(results)
 
+    def get_ubuntu_version_number_from_code_name(self, version, token=None, **rest) -> list:
+        """
+        Return version number for the given version string
+
+        :param version: The OS-Version (code name) which is requested.
+        :param token: The API-token obtained via the login() method.
+        :param rest: This is dropped in this method since it is not needed here.
+        :return: Ubuntu version number.
+        """
+        self._log("get_ubuntu_version_number_from_code_name", token=token)
+        results = utils.get_ubuntu_version_number_from_code_name(version)
+        return self.xmlrpc_hacks(results)
+
     def get_valid_os_versions(self, token=None, **rest) -> list:
         """
         Return the list of valid os_versions as read in from the distro signatures data
