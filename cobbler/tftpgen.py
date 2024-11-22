@@ -901,7 +901,7 @@ class TFTPGen:
                 if management_mac and distro.arch not in (enums.Archs.S390, enums.Archs.S390X):
                     append_line += " netdevice=%s" % management_mac
             elif distro.breed == "debian" or distro.breed == "ubuntu":
-                version = int(distro.name.split('-')[1].split('.')[0])
+                version = utils.get_ubuntu_version_from_breed(distro.os_version)
                 append_line = "%s auto-install/enable=true priority=critical url=%s" \
                               % (append_line, autoinstall_path)
                 if mac:
