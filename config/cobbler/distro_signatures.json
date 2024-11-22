@@ -1556,7 +1556,7 @@
           ".disk"
         ],
         "version_file": "Release|info",
-        "version_file_regex": "Suite: impish|Ubuntu-Server 21\\.10",
+        "version_file_regex": "Suite: impish|Ubuntu-Server 21.10",
         "kernel_arch": "linux-headers-(.*)\\.deb",
         "kernel_arch_regex": null,
         "supported_arches": [
